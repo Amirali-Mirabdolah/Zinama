@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-vazir: "Vazir";
+  --font-vazir-light: "Vazir Light";
+
+  --color-main: #bf023a;
+  --color-second: #3e7bfa;
+
+  --color-dark: #131313;
+  --color-dark-border: #1e1e1e;
+
+  --color-light-border: #e7e7e7;
+}
+
+@utility container {
+  @apply mx-auto px-2 lg:px-2.5;
+}
+
+@layer base {
+  * {
+    @apply select-none scroll-smooth;
+  }
+
+  @font-face {
+    font-family: "Vazir";
+    src: local("Vazir"),
+      url("../public/fonts/Vazir-Medium-FD.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Vazir Black";
+    src: local("Vazir Black"),
+      url("../public/fonts/Vazir-Black-FD.woff2") format("woff2");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Vazir Light";
+    src: local("Vazir Light"),
+      url("../public/fonts/Vazir-Light-FD.woff2") format("woff2");
+    font-display: swap;
+  }
+}
+
+@layer theme {
+  :root {
+    --background: #ffffff;
+    --text: #131313;
+  }
+
+  .dark {
+    --color-background: #131313;
+    --text: #ffffff;
+  }
+}
+
+body {
+  font-family: "Vazir";
+}
+
+.button {
+  @apply size-9 cursor-pointer border-light-border border-1 dark:bg-dark dark:text-white dark:border-dark-border rounded-md flex items-center justify-center hover:border-dark-border dark:hover:text-white transition-colors;
+}
+
+.navbar-submenu {
+  @apply absolute top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible w-35 p-4 space-y-2.5 font-vazir-light tracking-tight bg-white shadow-sm dark:bg-dark dark:text-white rounded-xl border-t-[3px] transition-all *:transition-colors *:hover:text-main border-t-main delay-150;
+}

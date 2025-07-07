@@ -1,0 +1,96 @@
+import React, { useEffect, useState } from 'react'
+import { IoIosSearch } from "react-icons/io";
+import { IoSunnyOutline } from "react-icons/io5";
+import { FaRegMoon } from "react-icons/fa";
+import { PiSignInLight } from "react-icons/pi";
+import { FiChevronDown } from "react-icons/fi";
+
+function Navbar() {
+
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+
+  useEffect(() => {
+    const root = window.document.documentElement
+    if (theme === 'dark') {
+      root.classList.add('dark')
+    } else {
+      root.classList.remove('dark')
+    }
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
+  const themeHandler = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+
+  return (
+    <>
+      <header className='shadow-sm rounded-sm mx-auto my-1 dark:bg-dark dark:text-white'>
+        <nav className='flex justify-between items-center py-2 px-3 w-full'>
+
+          <div className='flex h-9 gap-x-12 items-center'>
+            <a href="#">
+              <h2 className='text-3xl font-bold'>Zinama</h2>
+            </a>
+            <ul className='flex w-[232px] justify-between *:flex-1 items-center h-full gap-x-8 [&_li>a]:h-9 [&_li>div>a]:w-fit [&_a]:flex [&_a]:items-center *:transition-all'>
+              <li className=''>
+                <a href="#">
+                  خانه
+                </a>
+              </li>
+              <li className='relative group'>
+                <a href="#">
+                  فیلم
+                  <FiChevronDown className='text-sm' />
+                </a>
+                <div className='navbar-submenu'>
+                  <a href="#">اکشن</a>
+                  <a href="#">کمدی</a>
+                  <a href="#">جنگی</a>
+                  <a href="#">خانوادگی</a>
+                  <a href="#">درام</a>
+                  <a href="#">ترسناک</a>
+                  <a href="#">تاریخی</a>
+                  <a href="#">تخیلی</a>
+                  <a href="#">مستند</a>
+                </div>
+              </li>
+              <li className='relative group'>
+                <a href="#">
+                  سریال
+                  <FiChevronDown className='text-sm' />
+                </a>
+                <div className='navbar-submenu'>
+                  <a href="#">کمدی</a>
+                  <a href="#">معمایی</a>
+                  <a href="#">اکشن</a>
+                  <a href="#">تاریخی</a>
+                  <a href="#">تخیلی</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div className='flex items-center gap-x-4'>
+            <button className='button'>
+              <IoIosSearch className='text-xl' />
+            </button>
+            <button onClick={themeHandler} className='button'>
+              <IoSunnyOutline className='text-xl' />
+            </button>
+            <button className='opacity-0 invisible hidden'>
+              <FaRegMoon />
+            </button>
+            <a href="#" className='flex items-center gap-x-1 bg-main text-white h-9 px-2 rounded-sm hover:text-dark transition-colors'>
+              <PiSignInLight />
+              ورود | ثبت نام
+            </a>
+          </div>
+
+        </nav>
+      </header>
+    </>
+  )
+}
+
+export default Navbar
