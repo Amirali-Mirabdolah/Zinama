@@ -11,6 +11,8 @@
 
   --color-dark: #131313;
   --color-dark-border: #1e1e1e;
+  --color-dark-border-hover: #262626;
+  --color-dark-genre:#262626;
 
   --color-light-border: #e7e7e7;
 }
@@ -60,12 +62,22 @@
 
 body {
   font-family: "Vazir";
+  @apply dark:bg-dark
 }
 
 .button {
-  @apply size-9 cursor-pointer border-light-border border-1 dark:bg-dark dark:text-white dark:border-dark-border rounded-md flex items-center justify-center hover:border-dark-border dark:hover:text-white transition-colors;
+  @apply size-6.5 sm:size-9 cursor-pointer border-light-border border-1 dark:bg-dark dark:text-white dark:border-dark-border rounded-md flex items-center justify-center hover:border-dark-border dark:hover:text-white dark:hover:border-dark-border-hover transition-colors;
 }
 
 .navbar-submenu {
-  @apply absolute top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible w-35 p-4 space-y-2.5 font-vazir-light tracking-tight bg-white shadow-sm dark:bg-dark dark:text-white rounded-xl border-t-[3px] transition-all *:transition-colors *:hover:text-main border-t-main delay-150;
+  @apply absolute top-full opacity-0 invisible group-hover:opacity-70 group-hover:visible w-35 p-4 space-y-2.5 font-vazir-light tracking-tight bg-white shadow-sm dark:bg-dark dark:text-white rounded-xl border-t-[3px] transition-all *:transition-colors *:hover:text-main border-t-main delay-150;
+}
+
+.icon {
+  @apply text-[13px] sm:text-base;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  @apply text-main bg-dark dark:bg-red-50 p-2.5 rounded-full;
 }
