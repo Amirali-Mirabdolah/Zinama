@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function GenreList() {
     return (
         <>
-            <div className='my-4'>
+            <div className='my-2 md:my-4'>
                 <Swiper
                     slidesPerView={3}
                     spaceBetween={5}

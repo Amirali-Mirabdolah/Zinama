@@ -18,7 +18,7 @@ function Banner() {
                 modules={[Navigation, Pagination, EffectFade]}>
                 {Array.from({ length: 3 }).map((_, i) => (
                     <SwiperSlide key={i}>
-                        <div className='h-[calc(100vh-52px)]
+                        <div className='aspect-video md:h-[calc(100vh-52px)]
                          bg-cover bg-center w-full' style={{ backgroundImage: `url('/images/slider-${i + 1}.jpg')` }}>
                         </div>
                     </SwiperSlide>

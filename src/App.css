@@ -12,7 +12,7 @@
   --color-dark: #131313;
   --color-dark-border: #1e1e1e;
   --color-dark-border-hover: #262626;
-  --color-dark-genre:#262626;
+  --color-dark-genre: #262626;
 
   --color-light-border: #e7e7e7;
 }
@@ -62,7 +62,7 @@
 
 body {
   font-family: "Vazir";
-  @apply dark:bg-dark
+  @apply dark:bg-dark;
 }
 
 .button {
@@ -80,4 +80,12 @@ body {
 .swiper-button-next::after,
 .swiper-button-prev::after {
   @apply text-main bg-dark dark:bg-red-50 p-2.5 rounded-full;
+}
+
+.media-card-hover {
+  background: linear-gradient(
+    rgba(18, 18, 18, 0) 27%,
+    rgba(18, 18, 18, 0.8) 75%,
+    rgb(18, 18, 18) 100%
+  );
 }
