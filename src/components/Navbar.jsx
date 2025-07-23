@@ -6,6 +6,7 @@ import { PiSignInLight } from "react-icons/pi";
 import { FiChevronDown } from "react-icons/fi";
 import { LuUserRound } from "react-icons/lu";
 import { HiMiniBars3 } from "react-icons/hi2";
+import { Link } from 'react-router-dom';
 
 function Navbar() {
 
@@ -27,7 +28,7 @@ function Navbar() {
 
   return (
     <>
-      <header className='sticky top-0 z-50 shadow-sm rounded-b-sm mx-auto bg-white dark:bg-dark dark:text-white'>
+      <header className='sticky top-0 z-50 shadow-sm rounded-b-sm mx-auto bg-white dark:bg-dark-navbar dark:text-white'>
         <nav className='flex justify-between items-center py-2 px-3 w-full'>
 
           <div className='flex w-full *:flex-1/3 justify-between sm:justify-between h-9 gap-x-12 items-center'>
@@ -37,9 +38,9 @@ function Navbar() {
               </button>
             </div>
 
-            <a href="#">
+            <Link to={'/'}>
               <h2 className='text-2xl text-center sm:text-right sm:text-3xl font-bold'>Zinama</h2>
-            </a>
+            </Link>
 
             <ul className='hidden md:flex lg:max-w-[238px] *:flex-1/3 *:text-center justify-between items-center h-full gap-x-8 [&_li>a]:h-9 [&_li>div>a]:w-fit [&_a]:flex [&_a]:items-center *:transition-all'>
               <li className=''>
@@ -80,9 +81,9 @@ function Navbar() {
             </ul>
 
             <div className='flex items-center justify-end gap-x-1 sm:gap-x-2 md:gap-x-3'>
-              <button className='button'>
+              <Link to={'/search'} className='button'>
                 <IoIosSearch className='icon' />
-              </button>
+              </Link>
               <button onClick={themeHandler} className='button'>
                 <IoSunnyOutline className='icon' />
               </button>
