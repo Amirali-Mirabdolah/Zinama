@@ -29,7 +29,7 @@ function GenreList() {
                     {genres.map(genre => (
                         <SwiperSlide className='mx-1'>
                             <a href="#" key={genre.id} >
-                                <span className='bg-white dark:bg-dark-genre dark:text-white hover:bg-main hover:text-white transition-all border-dark-border duration-200 h-12 flex items-center justify-center border w-full rounded-full'>{genre.title}</span>
+                                <span className='filter-button'>{genre.title}</span>
                             </a>
                         </SwiperSlide>
                     ))}
