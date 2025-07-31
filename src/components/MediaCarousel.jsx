@@ -23,7 +23,7 @@ function MediaCarousel() {
                 breakpoints={{
                     640:{
                         slidesPerView:3,
-                        spaceBetween:35
+                        spaceBetween:5
                     },
                     768:{
                         slidesPerView:4,
@@ -34,7 +34,7 @@ function MediaCarousel() {
                         spaceBetween:20
                     },
                     1280:{
-                        slidesPerView:7,
+                        slidesPerView:6,
                         spaceBetween:25
                     },
                 }}

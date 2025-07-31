@@ -14,17 +14,17 @@ function Search() {
   return (
     <div className='flex text-white justify-center items-center'>
       <div className='w-[80%] h-[700px] bg-zinc-700 mt-20 mb-8'>
-        <div className='w-[80%] mx-auto '>
+        <div className='w-[80%] mx-auto relative'>
           <div className='flex items-center gap-x-2'>
             <div className='flex justify-between w-full h-[55px] relative border-2 border-dark-icons rounded-xl px-3 py-1 my-5'>
               <IoSearchOutline className='h-full dark:text-dark-icons text-[35px]' />
-              <input maxLength={18} type="text" className='block w-[95%] h-full outline-0' />
+              <input dir='auto' maxLength={18} type="text" className='block w-[95%] h-full outline-0' />
             </div>
             <button onClick={filterHandler} className='border-2 border-dark-icons p-2 h-full rounded-xl cursor-pointer text-white hover:text-main transition-colors'>
               <IoFilter className='text-[35px]' />
             </button>
           </div>
-          <ul className={`${showFilters ? 'flex' : 'hidden'} justify-around gap-x-3 *:!rounded-md [&_li]:space-x-`}>
+          <ul className={`absolute top-full left-0 right-0 transition-all duration-300 ease-in-out origin-top ${showFilters ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'} flex justify-around gap-x-3 *:!rounded-md [&_li]:space-x-`}>
             <li className='filter-button'>
               <span>نوع</span>
               <FiChevronDown />

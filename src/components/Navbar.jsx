@@ -7,10 +7,12 @@ import { FiChevronDown } from "react-icons/fi";
 import { LuUserRound } from "react-icons/lu";
 import { HiMiniBars3 } from "react-icons/hi2";
 import { Link } from 'react-router-dom';
+import MobileMenu from './MobileMenu';
 
 function Navbar() {
 
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
 
   useEffect(() => {
     const root = window.document.documentElement
@@ -26,6 +28,14 @@ function Navbar() {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
 
+  const mobileMenuHandler = () => {
+    setShowMobileMenu(true)
+  }
+
+  const closeMobileMenu = () => {
+    setShowMobileMenu(false)
+  }
+
   return (
     <>
       <header className='sticky top-0 z-50 shadow-sm rounded-b-sm mx-auto bg-white dark:bg-dark-navbar dark:text-white'>
@@ -33,7 +43,7 @@ function Navbar() {
 
           <div className='flex w-full *:flex-1/3 justify-between sm:justify-between h-9 gap-x-12 items-center'>
             <div className='sm:!hidden'>
-              <button className='button'>
+              <button onClick={mobileMenuHandler} className='button'>
                 <HiMiniBars3 className='icon' />
               </button>
             </div>
@@ -91,18 +101,18 @@ function Navbar() {
                 <FaRegMoon className='icon' />
               </button>
               <a href="#" className='hidden md:flex items-center gap-x-1 bg-main text-white h-9 px-1.5 rounded-sm hover:text-dark transition-colors'>
-                <PiSignInLight className='text-base'/>
+                <PiSignInLight className='text-base' />
                 ورود | ثبت نام
               </a>
               <button className='button md:!hidden bg-main dark:!bg-main text-white hover:!text-dark '>
-                <LuUserRound className='icon'/>
+                <LuUserRound className='icon' />
               </button>
             </div>
 
           </div>
 
-
         </nav>
+        <MobileMenu visible={showMobileMenu} onClose={closeMobileMenu} />
       </header>
     </>
   )
