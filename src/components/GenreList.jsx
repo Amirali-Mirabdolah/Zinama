@@ -9,7 +9,7 @@ function GenreList() {
         <>
             <div className='my-2 md:my-4'>
                 <Swiper
-                    slidesPerView={3}
+                    slidesPerView={4}
                     spaceBetween={5}
                     breakpoints={{
                         640: {
